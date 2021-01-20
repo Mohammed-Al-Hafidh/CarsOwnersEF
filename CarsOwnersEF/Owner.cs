@@ -17,6 +17,7 @@ namespace CarsOwnersEF
         public string Name { get; set; }
         [NotMapped]
         public int CarsNumber { get => Car.Count; }
+        
 
         public byte[] Image { get; set; }
         public ICollection<Car> Car { get; set; }

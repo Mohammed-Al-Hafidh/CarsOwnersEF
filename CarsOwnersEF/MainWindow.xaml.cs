@@ -39,15 +39,7 @@ namespace CarsOwnersEF
         }
         public void LoadDate()
         {
-            try
-            {
-                owners = ctx.Owners.Include("Car").ToList();
-            }
-            catch
-            {
-                owners = ctx.Owners.ToList();
-            }
-            
+            owners = ctx.Owners.Include("Car").ToList();
             cars = ctx.Cars.ToList<Car>();
             lvOwners.ItemsSource = owners;
         }
@@ -268,6 +260,14 @@ namespace CarsOwnersEF
             carsDialon.Owner = this;
             carsDialon.ShowDialog();
 
+        }
+
+       
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            LoadDate();
+            lvOwners.Items.Refresh();
         }
 
         //public static Bitmap GetImageFromByteArray(byte[] byteArray)

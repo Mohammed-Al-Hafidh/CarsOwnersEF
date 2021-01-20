@@ -69,7 +69,29 @@ namespace CarsOwnersEF
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            if (lvCars.SelectedIndex == -1)
+            {
+                MessageBox.Show("You need to select one item", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if ((txtMakeModel.Text == ""))
+            {
+                MessageBox.Show("Input string error.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Car carToBeupdated = (Car)lvCars.SelectedItem;
+            carToBeupdated.MakeModel = txtMakeModel.Text;
+            int id = carToBeupdated.CarId;
+            Car car = ctx.Cars.Where(c => c.CarId == id).FirstOrDefault<Car>();
+            if (car != null)
+            {
+                car.MakeModel = txtMakeModel.Text;
+                ctx.SaveChanges();
+                lvCars.Items.Refresh();
+            }
 
+
+           
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

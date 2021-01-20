@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarsOwnersEF"
         mc:Ignorable="d"
-        Title="CarsOwnersEF" Height="450" Width="530">
+        Title="CarsOwnersEF" Height="450" Width="530"  Activated="Window_Activated">
     <Grid>
         <ListView Name="lvOwners" HorizontalAlignment="Left" Height="360" Margin="30,30,0,0" VerticalAlignment="Top" Width="267" SelectionChanged="lvOwners_SelectionChanged" MouseDown="lvOwners_MouseDown">
             <ListView.View>
